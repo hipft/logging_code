@@ -21,10 +21,12 @@ int main() {
 	unsigned char flags;
 	//set the flag bits and print them
 	flags = LOG_ERRORS;
-	printf("Flag bits:" BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(flags));
+	printf("Flag bits set:" BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(flags));
 	printf("\n");
 	flags = LOG_ERRORS|LOG_WARNINGS;
-	printf("Flag bits:" BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(flags),"\n");
+	printf("Flag bits set:" BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(flags),"\n");
+	printf("\n");
+	printf("Log Level bits:" BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(LOG_WARNINGS));
 	printf("\n");
 
 	//now check if the LOG_WARNINGS flag is set. LOG_WARNINGS is set above, so it will be TRUE
@@ -35,7 +37,9 @@ int main() {
 		printf("WARNINGS Flag is not set \n");
 	}
 
-	printf("Flag bits:" BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(flags),"\n");
+	printf("Flag bits set:" BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(flags));
+	printf("\n");
+	printf("Log Level bits:" BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(LOG_DEBUG));
 	printf("\n");
 	//now check if the LOG_DEBUG flag is set. We never set it, so it will be FALSE
 	if ((flags & LOG_DEBUG) == LOG_DEBUG) {
@@ -47,7 +51,9 @@ int main() {
 
 	//now set it
 	flags ^= LOG_DEBUG;
-	printf("Flag bits:" BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(flags),"\n");
+	printf("Flag bits set:" BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(flags));
+	printf("\n");
+	printf("Log Level bits:" BYTE_TO_BINARY_PATTERN, BYTE_TO_BINARY(LOG_DEBUG));
 	printf("\n");
 	//now check if the LOG_DEBUG flag is set. We never set it, so it will be FALSE
 	if ((flags & LOG_DEBUG) == LOG_DEBUG) {
